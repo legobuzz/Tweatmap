@@ -1,0 +1,11 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "dependencies": {
+  	"commonjs-require-definition": "~0.1.2",
+  	"angular": "~1.2.15",
+  	"paper": "0.9.18"
+  	},
+  "overrides": {}
+}
