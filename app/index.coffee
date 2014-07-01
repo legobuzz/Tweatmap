@@ -1,5 +1,3 @@
-paper
-
 from = new Point(100, 200)
 to = new Point(200, 100)
 rotator = new Point(200, 200)
