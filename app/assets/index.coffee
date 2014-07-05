@@ -1,3 +1,16 @@
+# Connect to socket server.
+socket = io.connect("http://localhost:3000")
+
+# Reaction to socket event 'send_tweat_coords'.
+socket.on "send_tweat_coords", (data) ->
+	console.log data 	
+	setHeatpoint data.x, data.y
+	socket.emit "response",
+		great: "success"
+
+#
+# Sets a heatpoint at a given x, y position on the canvas.
+#
 setHeatpoint= (x,y) ->	
 	circle = new Path.Circle({
 		center: [x, y],
@@ -15,11 +28,5 @@ setHeatpoint= (x,y) ->
 	  destination: circle.bounds
 	}
 
-socket = io.connect("http://localhost:3000")
-socket.on "news", (data) -> 	
-	setHeatpoint data.x, data.y
-	socket.emit "my other event",
-		my: "danke"
 
-	return
 
