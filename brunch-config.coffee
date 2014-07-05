@@ -9,6 +9,12 @@ exports.config =
       'app'
     ]
 
+  server: 
+    path: 'server/server.coffee' 
+    port: 3000 
+    base: '/' 
+    run: yes
+
   files:
     javascripts:
       joinTo:
@@ -17,6 +23,7 @@ exports.config =
 
     stylesheets:
       joinTo: 'app.css'
+      
     templates:
       joinTo:
         'js/templates.js': /^.+\.jade$/
@@ -46,5 +53,3 @@ exports.config =
       # make bower components available as e.g. require('underscore')
       # instead of require('bower_componens/underscore/underscore')
       path = path.replace /^bower_components\/(.*\/)?/, ''
-
-      path

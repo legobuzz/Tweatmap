@@ -1,7 +1,7 @@
-setHeadpoint= (x,y) ->	
+setHeatpoint= (x,y) ->	
 	circle = new Path.Circle({
-	  center: [x, y],
-	  radius: 10
+		center: [x, y],
+		radius: 20
 	})
 
 	circle.opacity = 0.5
@@ -15,4 +15,11 @@ setHeadpoint= (x,y) ->
 	  destination: circle.bounds
 	}
 
-setHeadpoint 50, 50
+socket = io.connect("http://localhost:3000")
+socket.on "news", (data) -> 	
+	setHeatpoint data.x, data.y
+	socket.emit "my other event",
+		my: "danke"
+
+	return
+
