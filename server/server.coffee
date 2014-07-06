@@ -1,5 +1,5 @@
 express = require 'express'
-twitter_parser = require './twitter_parser.coffee'
+tools = require './tools.coffee'
 app = express()
  
 app.use(express.static './public')
@@ -21,15 +21,15 @@ exports.startServer = (port, path, callback) ->
 
 		reactionFunction = ->
 			socket.emit "send_tweat_coords",
-				twitter_parser.rnd_coords(800)
+				tools.rnd_coords(800)
 			socket.emit "send_tweat_coords",
-				twitter_parser.rnd_coords(800)
+				tools.rnd_coords(800)
 			socket.on "response", (data) ->
 				console.log data
 				return
 
 		
-		reactionFunction = twitter_parser.loopdecorator reactionFunction, 50, 1000
+		reactionFunction = tools.loopdecorator reactionFunction, 50, 1000
 		reactionFunction()
 		return
 
