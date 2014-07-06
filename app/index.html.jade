@@ -1,8 +1,10 @@
 doctype html
 html(lang="en")
 	head
+		link(rel="stylesheet" type="text/css" href="app.css")
 		script(src="/socket.io/socket.io.js")
 		script(type="text/javascript" src="/js/vendor.js")
 		script(type="text/paperscript" canvas="myCanvas" src="index.js")
 	body
-		canvas(id="myCanvas" resize)
+		div(id="headline") Tweatmap
+		canvas(id="myCanvas")

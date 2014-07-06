@@ -21,9 +21,9 @@ exports.startServer = (port, path, callback) ->
 
 		reactionFunction = ->
 			socket.emit "send_tweat_coords",
-				twitter_parser.rnd_coords(500)
+				twitter_parser.rnd_coords(800)
 			socket.emit "send_tweat_coords",
-				twitter_parser.rnd_coords(500)
+				twitter_parser.rnd_coords(800)
 			socket.on "response", (data) ->
 				console.log data
 				return
