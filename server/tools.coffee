@@ -7,7 +7,7 @@ exports.rnd_coords = (range) ->
 
 
 #
-# Decorates a given function an loops it.
+# Decorates a given function and loops it.
 # 
 exports.loopdecorator = (f, rounds, delay) ->
   ->
