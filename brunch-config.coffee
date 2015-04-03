@@ -1,19 +1,20 @@
 exports.config =
 
-  conventions:
-    # wrap bower_components into commonjs
-    vendor: /paper[\\/]/
-
-	 paths:
-    watched: [
-      'app'
-    ]
-
   server: 
     path: 'server/server.coffee' 
     port: 3000 
     base: '/' 
     run: yes
+
+  conventions:
+    # wrap bower_components into commonjs
+    vendor: -> false
+
+   paths:
+    public: 'public'
+    watched: [
+      'app'
+    ]
 
   files:
     javascripts:
@@ -22,8 +23,9 @@ exports.config =
         'js/vendor.js': /^(bower_components|vendor)/
 
     stylesheets:
-      joinTo: 'app.css'
+      joinTo: 'css/app.css': /^(app|vendor|bower_components)/
       
+    # TODO static index not in template.js
     templates:
       joinTo:
         'js/templates.js': /^.+\.jade$/
@@ -35,10 +37,9 @@ exports.config =
     static_jade:
       extension: '.html.jade'
       asset:     'public'
-    afterBrunch: [
-      'find public/ -type f -name "*.coffee" -delete'
-      'coffee --compile --output public app/assets/'
-      ]
+
+  minify: true
+  sourceMaps: false
 
   modules:
     nameCleaner: (path) ->
@@ -53,3 +54,5 @@ exports.config =
       # make bower components available as e.g. require('underscore')
       # instead of require('bower_componens/underscore/underscore')
       path = path.replace /^bower_components\/(.*\/)?/, ''
+
+      path

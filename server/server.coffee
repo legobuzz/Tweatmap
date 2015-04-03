@@ -25,8 +25,9 @@ exports.startServer = (port, path, callback) ->
 		console.log('Client is connected.')
 
 		twitter.stream.on "tweet", (tweet) ->
-  		console.log(tweet.text)
-  		console.log(tweet.geo)
+			if (tweet.place || {}).country_code == 'DE'
+  			console.log(tweet.place.name)
+  		#console.log(tweet.geo)
 
   	#
   	# Random heatpoints with loop.
@@ -40,5 +41,5 @@ exports.startServer = (port, path, callback) ->
 				console.log data
 				return		
 		reactionFunction = tools.loopdecorator reactionFunction, 50, 1000
-		#reactionFunction()
+		reactionFunction()
 
