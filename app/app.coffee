@@ -28,7 +28,7 @@ setHeatpoint= (x,y) ->
         "white"
       ]
       radial: true
-    origin: circle.position,
+    origin: circle.position
     destination: circle.bounds
 
   paper.view.update()
