@@ -1,6 +1,7 @@
 # Tweatmap
 
-Tweatmap is a geographic live image of Twitter tweets from Germany. Only geotagged tweets are shown!
+Tweatmap is a geographic live heat map of Twitter tweets from Germany.
+Only geotagged tweets are shown!
 
 ##
 
