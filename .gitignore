@@ -34,3 +34,5 @@ bower_components/
 
 # Custom
 /server/credentials.coffee
+
+/canvas_map.ai
